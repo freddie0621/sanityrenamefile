@@ -4,40 +4,30 @@ import sys
 import os
 from string import maketrans
 
+from optparse import OptionParser
+
+parser = OptionParser()
+parser.add_option("-f", "--file", dest="filename",
+                  help="write report to FILE", metavar="FILE")
+(options, args) = parser.parse_args()
+print options.filename
+
 # Which file are we working with?
-input_file = sys.argv[1]
-#input_file = "001.epub"
-# Where do does the file have to be saved?
-#output_file = sys.argv[2]
-#output_file = "toto1.jpg"
-# Required size?
-#size = int(sys.argv[3])
-#size = 600
+fname = options.filename
 
 
 
 
-
-
-
-
-table = maketrans("æéèê'-?!: ", "aeee______")
-#chaine = "? l'orée du bois"
-fname = ' '.join(sys.argv[1:])
 #print fname
 #sys.exit(fname)
-table = maketrans("çæéèê'-?!: ", "caeee______")
-chaine = "? l'orée du bois"
-fname = ' '.join(sys.argv[1:])
-new_name= fname.translate(table, ' ').replace(' ','_').lower()
+table = maketrans("'ôà,çæéèêë'-?!: ","_oa_caeeee______")
+
+
+
+new_name= fname.translate(table,'').lower().replace(u'?','oe')
 
 #sys.exit(new_name)
 
 rename(fname,new_name)
 
-#print chaine.translate(table, ' ')
-#new_name= fname.translate(maketrans(" æéèê'-?!: ", "_aeee______")).lower()
-#print new_name
-#sys.exit('==1=')
-#sys.exit(new_name)
-#sys.exit('+++')
+

@@ -20,11 +20,11 @@ fname = options.filename
 
 #print fname
 #sys.exit(fname)
-table = maketrans("'ôà,çæéèêë'-?!: ","_oa_caeeee______")
+table = maketrans("'Ã´Ã ,Ã§Ã¦Ã©Ã¨ÃªÃ«'-?!: ","_oa_caeeee______")
 
 
 
-new_name= fname.translate(table,'').lower().replace(u'?','oe')
+new_name= fname.translate(table,'').lower().replace(u'?','oe').replace('&','_')
 
 #sys.exit(new_name)
 
